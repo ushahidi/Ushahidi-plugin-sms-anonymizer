@@ -28,7 +28,7 @@ class sms_anonymizer {
 	 */
 	public function add()
 	{
-		// Add an Admin Sub-Nav Link
+		// Hook into incoming sms event
 		Event::add('ushahidi_action.message_sms_add', array($this, '_anonymize'));
 	}
 	

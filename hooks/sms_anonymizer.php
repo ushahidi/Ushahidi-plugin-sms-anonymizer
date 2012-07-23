@@ -34,8 +34,9 @@ class sms_anonymizer {
 	
 	public function _anonymize()
 	{
-		$anon = text::random($type = 'alnum', $length = 50);
+		$encrypt = new Encrypt;
 		$sms = Event::$data;
+		$anon = $encrypt->encode($sms->message_from);
 		$sms->message_from = $anon;
 		$sms->save();
 		
